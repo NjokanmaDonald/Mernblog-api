@@ -43,14 +43,6 @@ app.use("/api/users", userRoute);
 app.use("/api/posts", postRoute);
 app.use("/api/categories", categoryRoute);
 
-
-if(process.env.NODE_ENV === 'production') {
-    app.use(express.static("blog-app/build"));
-
-    app.get('*', (req,res) => {
-        res.sendFile(path.resolve(__dirname, 'blog-app', 'build', 'index.html'))
-    })
-}
 app.listen(PORT, ()=> {
     console.log("Backend is running")
 })
